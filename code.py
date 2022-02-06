@@ -28,10 +28,10 @@ def judge():
         elif ip == '4':
             num = int(input('input number to display once:'))
             while True:
-                if num > 4 and num < 16:
+                if num > 0 and num < 16:
                     return num
                 else:
-                    num = int(input('num is required to >4 and <16:'))
+                    num = int(input('num is required to >0 and <16:'))
         else:
             exit()
 
