@@ -1,7 +1,8 @@
 import numpy
 num = 5
 
-
+#ctrl + alt + k to add a bookmark
+#ctrl + alt + j to get to one bookmark
 def judge():
     while True:
         ip = input('input command:')
