@@ -7,7 +7,7 @@ def judge():
         if ip != '1' and ip != '2' and ip != '3' and ip != '4' and ip != '5':
             print('input error!')
             continue
-        elif ip == 1:
+        elif ip == '1':
             return None
         elif ip == '2':
             print(ping[x], pian[x], yin[x])
@@ -34,6 +34,7 @@ pian = ['ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', '�
         'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン']
 yin = ['a', 'i', 'u', 'e', 'o', 'ka', 'ki', 'ku', 'ke', 'ko', 'sa', 'si/shi', 'su', 'se', 'so', 'ta', 'ti/chi', 'tu/tsu', 'te', 'to', 'na', 'ni',
        'nu', 'ne', 'no', 'ha', 'hi', 'hu/fu', 'he', 'ho', 'ma', 'mi', 'mu', 'me', 'mo', 'ya', 'yu', 'yo', 'ra', 'ri', 'ru', 're', 'ro', 'wa', 'wo', 'n']
+data=[ping,pian,yin]
 print('begin\ninput \'1\' to continue, input \'2\' to show and input \'3\' to set range and input \'4\' to change mode and input \'5\' to exit.')
 L = 45*[None]
 counter = 0
@@ -44,6 +45,16 @@ print('input mode:')
 temp = judge()
 
 while True:
+    X=numpy.random.randint(a,b,size=num)
+    X=list(set(X))
+    while True:
+        temp=numpy.random.randint(a,b)
+        if temp not in X:
+            X.append(temp)
+            if len(X)==num:
+                break
+    Y=numpy.random.randint(1,4,size=num)#生成无重复序列X和模式序列Y，且长度均为num
+    
     for x in range(1, num+1):
         if None not in L:
             L = (b-a)*[None]
@@ -56,23 +67,9 @@ while True:
                 x = numpy.random.randint(a, b)
         counter = (counter+1) % (b-a)
         y = numpy.random.randint(1, 4)
-        if y == 1:
-            print(ping[x])
-            temp = judge()
-            if type(temp) == tuple:
-                a, b = temp
-                L = (b-a)*[None]
-        elif y == 2:
-            print(pian[x])
-            temp = judge()
-            if type(temp) == tuple:
-                a, b = temp
-                L = (b-a)*[None]
-            elif type(temp) == int:
-                num = temp
-        else:
-            print(yin[x])
-            temp = judge()
-            if type(temp) == tuple:
-                a, b = temp
-                L = (b-a)*[None]
+        print(data[y][x]+' ')
+    
+    temp = judge()
+    if type(temp) == tuple:
+        a, b = temp
+        L = (b-a)*[None]
