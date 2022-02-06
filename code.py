@@ -1,6 +1,5 @@
 import numpy
-
-
+num=5
 def judge():
     while True:
         ip = input('input command:')
@@ -10,20 +9,26 @@ def judge():
         elif ip == '1':
             return None
         elif ip == '2':
-            print(ping[x], pian[x], yin[x])
+            for u in [0,1,2]:
+                for v in X:
+                    print(data[u][v], end = '  ')
+                print('')
             continue
         elif ip == '3':
-            print('input a ~ b:')
-            a = int(input('a:'))
-            b = int(input('b:'))
-            return a, b
+            while True:
+                print('input a ~ b:')
+                a = int(input('a:'))
+                b = int(input('b:'))
+                if a>=b:
+                    print('input error!')
+                else: return a,b
         elif ip == 4:
             num = int(input('input number to display once:'))
             while True:
                 if num > 4 and num < 16:
                     return num
                 else:
-                    num = int(input('input number to display once:'))
+                    num = int(input('num is required to >4 and <16:'))
         else:
             exit()
 
@@ -41,35 +46,45 @@ counter = 0
 a = 0
 b = 45
 num = 5
-print('input mode:')
-temp = judge()
+
 
 while True:
-    X=numpy.random.randint(a,b,size=num)
+    X=numpy.random.randint(a,b,size=num - 1)
     X=list(set(X))
     while True:
-        temp=numpy.random.randint(a,b)
+        temp=numpy.random.randint(a,b)#无法降低重复出现率
         if temp not in X:
             X.append(temp)
             if len(X)==num:
                 break
-    Y=numpy.random.randint(1,4,size=num)#生成无重复序列X和模式序列Y，且长度均为num
-    
-    for x in range(1, num+1):
-        if None not in L:
-            L = (b-a)*[None]
-        x = numpy.random.randint(a, b)
-        while True:
-            if x not in L:
-                L[counter] = x
-                break
-            else:
-                x = numpy.random.randint(a, b)
-        counter = (counter+1) % (b-a)
-        y = numpy.random.randint(1, 4)
-        print(data[y][x]+' ')
-    
+    Y=numpy.random.randint(0,3,size=num)#生成无重复序列X和模式序列Y，且长度均为num
+    List=[]
+    for x in range(0,len(X)):
+        List=List+[data[Y[x]][X[x]]]
+    for x in List:
+        print(x, end = '  ')
+    print('')
     temp = judge()
-    if type(temp) == tuple:
-        a, b = temp
-        L = (b-a)*[None]
+    if type(temp)==tuple:
+        a,b=temp
+    elif type(temp)==int:
+        num = temp
+
+    # for x in range(1, num+1):
+    #     if None not in L:
+    #         L = (b-a)*[None]
+    #     x = numpy.random.randint(a, b)
+    #     while True:
+    #         if x not in L:
+    #             L[counter] = x
+    #             break
+    #         else:
+    #             x = numpy.random.randint(a, b)
+    #     counter = (counter+1) % (b-a)
+    #     y = numpy.random.randint(1, 4)
+    #     print(data[y][x]+' ')
+    
+    # temp = judge()
+    # if type(temp) == tuple:
+    #     a, b = temp
+    #     L = (b-a)*[None]
