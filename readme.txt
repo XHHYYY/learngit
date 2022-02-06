@@ -1,4 +1,4 @@
-what a powerful programm
+what a powerful program
 try to learn it 
 the cake is a lie
 abc
