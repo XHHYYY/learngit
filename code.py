@@ -25,7 +25,7 @@ def judge():
                     print('input error!')
                 else:
                     return a, b
-        elif ip == 4:
+        elif ip == '4':
             num = int(input('input number to display once:'))
             while True:
                 if num > 4 and num < 16:
@@ -48,7 +48,6 @@ L = 45*[None]
 counter = 0
 a = 0
 b = 45
-num = 5
 
 
 while True:
