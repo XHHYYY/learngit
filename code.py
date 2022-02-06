@@ -1,8 +1,16 @@
 import numpy
 num = 5
+# ! Warning better comments cannot be added at the first line.
+# ? Question
+# //Deletion
+# TODO todo
+# * special
+# ctrl + alt + k to add a bookmark
+# ctrl + alt + j to get to one bookmark
+# alt + shift + f to modify the code
+# ctrl + shift + v to open python preview
+# ctrl + p and then input '>' to open command
 
-#ctrl + alt + k to add a bookmark
-#ctrl + alt + j to get to one bookmark
 def judge():
     while True:
         ip = input('input command:')
@@ -72,3 +80,4 @@ while True:
         a, b = temp
     elif type(temp) == int:
         num = temp
+        
