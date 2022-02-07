@@ -14,10 +14,10 @@ num = 5
 def judge():
     while True:
         ip = input('input command:')
-        if ip != '1' and ip != '2' and ip != '3' and ip != '4' and ip != '5':
+        if ip != '1' and ip != '2' and ip != '3' and ip != '4' and ip != '5' and ip != '\n':
             print('input error!')
             continue
-        elif ip == '1':
+        elif ip == '1' or ip == '\n':
             return None
         elif ip == '2':
             for u in [0, 1, 2]:
@@ -57,6 +57,7 @@ L = 45*[None]
 counter = 0
 a = 0
 b = 45
+L = numpy.random.randint(a, b, size=num - 1)
 
 
 while True:
@@ -64,10 +65,11 @@ while True:
     X = list(set(X))
     while True:
         temp = numpy.random.randint(a, b)  # 无法降低重复出现率
-        if temp not in X:
+        if temp not in X and temp not in L:
             X.append(temp)
             if len(X) == num:
                 break
+    L=X[0:int((b-a)*0.5+1)]
     Y = numpy.random.randint(0, 3, size=num)  # 生成无重复序列X和模式序列Y，且长度均为num
     List = []
     for x in range(0, len(X)):
