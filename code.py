@@ -14,10 +14,10 @@ num = 5
 def judge():
     while True:
         ip = input('input command:')
-        if ip != '1' and ip != '2' and ip != '3' and ip != '4' and ip != '5' and ip != '\n':
+        if ip != '1' and ip != '2' and ip != '3' and ip != '4' and ip != '5' and ip != '':
             print('input error!')
             continue
-        elif ip == '1' or ip == '\n':
+        elif ip == '1' or ip == '':
             return None
         elif ip == '2':
             for u in [0, 1, 2]:
